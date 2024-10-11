@@ -319,7 +319,8 @@ monitor.execute(
 
 ## Documentation
 
-For complete project documentation, please visit our docs section [Enola AI Documentation](https://github.com/MarceloxOFH/preview-enola-doc/tree/master/docs).
+For complete project documentation, please visit our docs section:
+- [User Guide](docs/user_guide.md)
 
 ---
 
