@@ -160,10 +160,11 @@ monitor = Tracking(
     message_input="I need help with my order."
 )
 ```
+
+```plaintext
 2024-10-02 09:31:23,539 WELCOME to Enola...
 2024-10-02 09:31:23,540 authorized...
 2024-10-02 09:31:23,540 STARTED!!!
-```
 ```
 
 ### Understanding Steps in Enola-AI
