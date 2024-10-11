@@ -169,7 +169,7 @@ You can add any additional information to the step using `add_extra_info`. A ste
 ```python
 # Add extra information to the step
 step_generic.add_extra_info("Query", "What is the status of order #12345?")
-step_generic.add_extra_info("RetrievedData", {"order_status": "Shipped", "delivery_date": "2024-10-05"})
+step_generic.add_extra_info("RetrievedData", {"status": "Shipped", "delivery_date": "2024-10-05"})
 ```
 
 
@@ -200,7 +200,7 @@ If your step involves processing with a language model (LLM), you might want to 
 step_llm = monitor.new_step("LLM Inference Step")
 
 # Output message
-step_llm.add_extra_info("ModelResponse", "Your order #12345 has been shipped and will arrive on 2024-10-05.")
+step_llm.add_extra_info("ModelResponse", "Your order #12345 will arrive on 2024-10-05.")
 
 # Close the LLM step with token information
 monitor.close_step_token(
@@ -284,7 +284,7 @@ monitor = Tracking(
 # Step generic: Data Retrieval
 step_generic = monitor.new_step("Data Retrieval Step")
 step_generic.add_extra_info("Query", "What is the status of order #12345?")
-step_generic.add_extra_info("RetrievedData", {"order_status": "Shipped", "delivery_date": "2024-10-05"})
+step_generic.add_extra_info("RetrievedData", {"status": "Shipped", "delivery_date": "2024-10-05"})
 # Close the step
 monitor.close_step_others(
     step=step_generic,
@@ -294,7 +294,7 @@ monitor.close_step_others(
 
 # Step LLM: LLM Inference
 step_llm = monitor.new_step("LLM Inference Step")
-step_llm.add_extra_info("ModelResponse", "Your order #12345 has been shipped and will arrive on 2024-10-05.")
+step_llm.add_extra_info("ModelResponse", "Your order #12345 will arrive on 2024-10-05.")
 # Close the step with token usage
 monitor.close_step_token(
     step=step_llm,
@@ -319,7 +319,7 @@ monitor.execute(
 
 ## Documentation
 
-For complete project documentation, please visit our [Enola AI Documentation](https://marceloxofh.github.io/preview-enola-doc/docs/).
+For complete project documentation, please visit our docs section [Enola AI Documentation](https://github.com/MarceloxOFH/preview-enola-doc/tree/master/docs).
 
 ---
 
