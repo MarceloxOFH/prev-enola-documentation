@@ -134,6 +134,7 @@ env.bak/
 venv.bak/
 mi_entorno/
 enola-env/
+enola-env/pyvenv.cfg
 
 # Spyder project settings
 .spyderproject
