@@ -1036,3 +1036,4 @@ This project is licensed under the **BSD 3-Clause License**. See the [LICENSE](L
 ## Contact
 
 For any inquiries or support, please contact us at [help@huemulsolutions.com](mailto:help@huemulsolutions.com).
+
