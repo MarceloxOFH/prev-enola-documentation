@@ -205,7 +205,7 @@ LLM Steps are used to track interactions with language models where token usage,
 ---
 
 ## Documentation
-For complete project documentation, please visit our docs section [User Guide](docs/user_guide.md):
+For complete project documentation, please visit our docs section [User Guide](docs/user_guide.md).
 There you will find complete documentation about Enola, with step-by-step instructions and examples, alongside explanations about the functionalities that this system has to offer:
 
 This basic guide will cover:
