@@ -82,6 +82,7 @@ To connect to Enola and initialize tracking you will need:
 
 #### **1. Loading Enola API Token**
 **You can load the token from a `.env` file (recommended).**
+
 This method is recommended due to better security for token management.
 - Go to the same directory where your Python file is located
 - To load the token, you have to create a .env file, with name ".env"
