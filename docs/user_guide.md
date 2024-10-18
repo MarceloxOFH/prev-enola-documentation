@@ -12,17 +12,12 @@
    - [Understanding Steps in Enola-AI](#understanding-steps-in-enola-ai)
      - [Generic Steps](#generic-steps)
      - [LLM Steps](#llm-steps)
-6. [Sending Online Chat Data](#sending-online-chat-data)
-7. [Sending Online Score Data (Available Soon)](#sending-online-score-data)
-8. [Sending Multiple Tasks (Available Soon)](#sending-multiple-tasks)
-9. [Sending File Information (Available Soon)](#sending-file-information)
-10. [Sending API Information (Available Soon)](#sending-api-information)
-11. [Sending Cost Information (Available Soon)](#sending-cost-information)
-12. [Sending Batch Score Data (Available Soon)](#sending-batch-score-data)
-13. [Summary](#summary)
-14. [Contributing](#contributing)
-15. [License](#license)
-16. [Contact](#contact)
+6. [Documentation](#documentation)
+   - [Sending Online Chat Data](#sending-online-chat-data)
+7. [Summary](#summary)
+8. [Contributing](#contributing)
+9. [License](#license)
+10. [Contact](#contact)
 
 ---
 
@@ -208,8 +203,22 @@ LLM Steps are used to track interactions with language models where token usage,
 - Tracking token counts and associated costs.
 
 ---
+## Documentation
 
-## Sending Online Chat Data
+In this section you will find complete documentation about Enola, with step-by-step instructions and examples, alongside explanations about the functionalities that this system has to offer:
+
+Currently, this guide will cover:
+- Sending Online Chat Data
+
+Please keep in mind these are Upcoming Features and will become available soon.
+- Sending Online Score Data
+- Sending Multiple Tasks
+- Sending File Information
+- Sending API Information
+- Sending Cost Information
+- Sending Batch Score Data
+
+### Sending Online Chat Data
 
 When working with conversational AI agents, it's essential to track user interactions and model responses. Enola-AI allows you to send online chat data for monitoring and evaluation.
 
@@ -319,6 +328,8 @@ When working with conversational AI agents, it's essential to track user interac
 	
 ### Complete Example: Sending Online Chat Data
 
+**Note 1: It is recommended to define the variable `user_input` to store the message input from the user and replace the hardcoded message in `message_input` with `user_input`. By following good programming practices, you can achieve a cleaner and more organized code.**
+
 ```python
 # Import necessary libraries
 from enola.tracking import Tracking
@@ -328,6 +339,9 @@ import os
 # Load .env file and set up your token
 load_dotenv()
 token = os.getenv('ENOLA_TOKEN')
+
+# Define the variable user_input and assign the user message input
+user_input = "What car offers good performance for a low cost?"
 
 # Initialize the tracking object
 monitor = Tracking(
@@ -339,14 +353,14 @@ monitor = Tracking(
     session_id="Session456",
     channel_id="console",
     ip="192.168.1.1",
-    message_input="What car offers good performance for a low cost?"
+    message_input=user_input	# Replace the previous hardcoded message with user_input
 )
 
 # Create an LLM Step
 step_chat = monitor.new_step("User Inquiry")
 
 # Add user's question
-step_chat.add_extra_info("UserQuestion", "What car offers good performance for a low cost?")
+step_chat.add_extra_info("UserQuestion", user_input) # Replace the previous hardcoded message with user_input
 
 # Simulated model response
 model_response = "The Honda Civic offers great performance at a reasonable price."
@@ -380,70 +394,45 @@ Chat Session Tracking V1: sending to server...
 Chat Session Tracking V1: finish OK! 
 ```
 
-**Note 1: It is recommended to define the variable "user_input" to store the message input from the user and fill the "message_input" from the function Tracking.**
-
-
-- First you define the variable "user_input" and assign the message input from the user:
-    ```Python
-    user_input="What car offers good performance for a low cost?"
-    ```
-- Then replace the hardcoded definition of "message_input" with the variable "user_input" inside Tracking:
-    ```Python
-    monitor = Tracking(
-        token=token,
-        name="Chat Session Tracking V1",
-        is_test=True,
-        app_id="ChatApp",
-        user_id="User123",
-        session_id="Session456",
-        channel_id="console",
-        ip="192.168.1.1",
-        message_input=user_input
-    )
-    ```
-This approach using "user_input" variable to store the message from the user allows better management and control over the message input from the user, because it prevents the need to rewrite a message that was already written before. 
-By following good programming practices, you can achieve a cleaner and more organized code.
-
-
-**Note 2: The message in the variable "model_response" is being simulated in this example.**
+**Note 2: The message in the variable `model_response` is being simulated in this example.**
 
 ```Python
     # Simulated model response
     model_response = "The Honda Civic offers great performance at a reasonable price."
 ```
 
-However, when your Python script effectively connects with an LLM Model (eg. Ollama running on your local machine or through an API), you can expect a real response that will be stored in the variable "model_response".
+However, when your Python script effectively connects with an LLM Model (eg. Ollama running on your local machine or through an API), you can expect a real response that will be stored in the variable `model_response`.
 You can check our user guide to create a simple chatbot using Ollama running on your local machine (Available Soon).
 
 ---
 *Upcoming Features:*
 The following guides are going to be added to the documentation soon.
 
-## Sending Online Score Data
+### Sending Online Score Data
 
 ---
 
-## Sending Multiple Tasks
+### Sending Multiple Tasks
 
 ---
 
-## Sending File Information
+### Sending File Information
 
 ---
 
-## Sending API Information
+### Sending API Information
 
 ---
 
-## Sending Cost Information
+### Sending Cost Information
 
 ---
 
-## Sending Batch Score Information
+### Sending Batch Score Information
 
 ---
 
-## Summary
+### Summary
 
 This documentation provides a guide on using the Enola-AI Python library to initialize tracking and send online chat data. Future sections will cover additional features as they become available.
 
