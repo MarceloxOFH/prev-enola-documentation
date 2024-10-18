@@ -95,6 +95,7 @@ This method is recommended due to better security for token management.
 - Assuming the Python file and the `.env` file are in the same directory, your token should be loaded
 
 **Alternatively, you can set it directly in your script:**
+
 This method is easier and fine for testing purposes, but it is not the recommended method due to the token is exposed in the script. It is advisable to always keep your token information secure.
 
 To set it directly in your Python script:
