@@ -81,7 +81,7 @@ To connect to Enola and initialize tracking you will need:
 - A Python script, you can start creating an empty Python file with .py extension. (eg. enola_sample.py, enola_script.py)
 
 #### **1. Loading Enola API Token**
-**You can load the token from a `.env` file (recommended).**
+**You can load the token from a `.env` file (recommended):**
 
 This method is recommended due to better security for token management.
 - Go to the same directory where your Python file is located
@@ -103,7 +103,7 @@ To set it directly in your Python script:
 ```python
 token = 'your_api_token'
 ```
-**You can also load the token using Environment Variables**
+**You can also load the token using Environment Variables:**
 
 Another method to load the token is by setting your Enola API token as an Environment Variable. This method offers more flexibility but it requires more complex configurations, depending on your operating system.
 For convenience, the method for loading the token from a `.env` file will be covered instead in this guide.
