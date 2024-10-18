@@ -211,7 +211,6 @@ There you will find complete documentation about Enola, with step-by-step instru
 This basic guide will cover:
 - Sending Online Chat Data
 
-For additional explanations, please visit our docs section [User Guide](docs/user_guide.md).
 Please keep in mind these are Upcoming Features and will become available soon.
 - Sending Online Score Data
 - Sending Multiple Tasks
