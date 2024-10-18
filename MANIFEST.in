@@ -1,8 +1,0 @@
-# MANIFEST.in
-exclude *.pyc
-exclude __pycache__
-exclude *.log
-exclude .env
-exclude internal.md
-exclude *.pypirc
-exclude test_tracking.py

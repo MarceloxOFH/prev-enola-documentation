@@ -210,7 +210,7 @@ In this section you will find complete documentation about Enola, with step-by-s
 Currently, this guide will cover:
 - Sending Online Chat Data
 
-Please keep in mind these are Upcoming Features and will become available soon.
+Please keep in mind these are Upcoming Features and will become available soon:
 - Sending Online Score Data
 - Sending Multiple Tasks
 - Sending File Information
