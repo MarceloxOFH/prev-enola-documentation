@@ -47,7 +47,7 @@ This documentation provides a comprehensive guide on how to use the Enola-AI Pyt
 ## Requirements
 
 - **Python 3.7+**
-- **Dependencies**: Specified in `requirements.txt`
+- **Enola API Token**
 
 ---
 
@@ -55,44 +55,19 @@ This documentation provides a comprehensive guide on how to use the Enola-AI Pyt
 
 Before installing the Enola-AI Python library, ensure that you have Python 3.7 or higher installed.
 
-1. **Install the SDK via pip**
+**Install the SDK via pip**
+
+In your Command Prompt (Windows) or Terminal (Linux/macOS) type:
 
    ```bash
    pip install enola
    ```
 
-2. **Optional: Create a Virtual Environment**
-
-   It's recommended to use a virtual environment to manage your dependencies.
-   If you are located in the Enola project folder, you can create a virtual environment using the following command:
-
-   ```bash
-   python3 -m venv enola-env        # On Linux/macOS
-   python -m venv enola-env         # On Windows
-   ```
-    This command creates a directory called enola-env, which contains your isolated Python installation and any libraries you install.
-    
-    To use the virtual environment, you need to "activate" it. Depending on your operating system:
-    ```bash
-   source enola-env/bin/activate    # On Linux/macOS
-   enola-env\Scripts\activate       # On Windows
-   ```
-   When the environment is activated, your terminal prompt should change to indicate that you are now working inside the virtual environment. Any pip install commands you run will install packages in this environment, not globally.
-   
-   Tip: To exit the virtual environment and return to your global environment, use the deactivate command:
-    ```bash
-   deactivate
-   ```
-   After deactivation, your terminal prompt will revert to its normal state.
-
-
-3. **Install Dependencies**
-
-   If you are installing from the source code, install the dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
+By doing a pip install, you have the Enola-AI Python library and its dependencies automatically installed in your device.
+```Note 
+Note: Advanced users may prefer to use a virtual environment to manage dependencies and 
+isolate the Enola-AI library from other Python packages
+```
 
 ---
 
@@ -101,50 +76,79 @@ Before installing the Enola-AI Python library, ensure that you have Python 3.7 o
 To start using the Enola-AI Python library, follow the steps below to initialize tracking in your application.
 
 ### Initializing Tracking
+To connect to Enola and initialize tracking you will need:
+- A token provided by Enola. This token is essential for authentication and authorization purposes.
+- A Python script, you can start creating an empty Python file with .py extension. (eg. enola_sample.py, enola_script.py)
 
-#### **1. Set Up Environment Variables**
+#### **1. Loading Enola API Token**
+**You can load the token from a `.env` file (recommended).**
+This method is recommended due to better security for token management.
+- Go to the same directory where your Python file is located
+- To load the token, you have to create a .env file, with name ".env"
 
-You can set your Enola API token as an environment variable. Replace `'your_api_token'` with your actual token.
-```bash
-export ENOLA_TOKEN='your_api_token'     # On Linux/macOS
-set ENOLA_TOKEN=your_api_token          # On Windows
-```
+- Then open the file with a text editor and add this line:
 
-Alternatively, you can load the token from a `.env` file (recommended) or 
-set it directly in your script (not recommended for production):
+    ```plaintext
+    ENOLA_TOKEN=your_api_token
+    ```
+- Replace `your_api_token` with your Enola API token.
+- Assuming the Python file and the `.env` file are in the same directory, your token should be loaded
 
-To set it directly in your script:
-```plaintext
+**Alternatively, you can set it directly in your script:**
+This method is easier and fine for testing purposes, but it is not the recommended method due to the token is exposed in the script. It is advisable to always keep your token information secure.
+
+To set it directly in your Python script:
+```python
 token = 'your_api_token'
 ```
-To load it from a `.env` file, you have to create the file name ".env" in the same directory as your Python script and set it like this:
+**You can also load the token using Environment Variables**
+Another method to load the token is by setting your Enola API token as an Environment Variable. This method offers more flexibility but it requires more complex configurations, depending on your operating system.
+For convenience, the method for loading the token from a `.env` file will be covered instead in this guide.
 
-```plaintext
-ENOLA_TOKEN=your_api_token
-```
-
-Then you can load the .env file in your script
-```python
-from dotenv import load_dotenv
-load_dotenv()
-token = os.getenv("ENOLA_TOKEN")
-```
 
 #### **2. Import the Necessary Libraries**
-Assuming you are loading the .env file:
+Assuming you are loading the token from the `.env` file,
+In your Python script, start importing the necessary libraries:
 ```python
-from enola.tracking import Tracking
-from enola.enola_types import ErrOrWarnKind, DataType
-from dotenv import load_dotenv
-import os
+# Import necessary libraries
+from enola.tracking import Tracking     # Enola Tracking module
+from dotenv import load_dotenv          # .env Loader
+import os                               # Operating System functionalities
 ```
 
 #### **3. Initialize the Tracking Agent**
-
+Load the Enola API token and initialize the tracking agent.
 ```python
 # Load .env file
 load_dotenv()
-# Load the token from environment variables
+# Set up your token
+token = os.getenv('ENOLA_TOKEN')
+
+# Initialize the tracking agent
+monitor = Tracking(
+    token=token,			  # Your Enola API token
+    name="My Enola Project",  # Name of your tracking session
+    is_test=True,             # Set to True if this is a test session
+    app_id="my_app_id_01",    # Application ID
+    user_id="user_123",       # User ID
+    session_id="session_456", # Session ID
+    channel_id="console",     # Channel ID (e.g., 'console', 'web', 'mobile')
+    ip="192.168.1.1",         # IP address of the client
+    message_input="Hello, what can you do?"  # Input message from the user
+)
+```
+---
+
+#### **Complete Example: Basic Tracking Initialization**
+
+```python
+# Import necessary libraries
+from enola.tracking import Tracking
+from dotenv import load_dotenv
+import os
+
+# Load .env file and set up your token
+load_dotenv()
 token = os.getenv('ENOLA_TOKEN')
 
 # Initialize the tracking agent
@@ -160,41 +164,14 @@ monitor = Tracking(
     message_input="Hello, what can you do?"  # Input message from the user
 )
 ```
-
----
-
-#### **Example: Basic Tracking Initialization**
-
-```python
-import os
-from enola.tracking import Tracking
-from dotenv import load_dotenv
-
-# Load .env file with token inside
-load_dotenv()
-# Set up your token
-token = os.getenv('ENOLA_TOKEN')
-
-# Initialize the tracking agent
-monitor = Tracking(
-    token=token,
-    name="Customer Support Session",
-    is_test=True,
-    app_id="support_app_01",
-    user_id="customer_001",
-    session_id="Session_123",
-    channel_id="console",
-    ip="192.168.1.1",
-    message_input="I need help with my order."
-)
-```
 After executing the script and initializing the tracking agent, you should get a console output like this:
 ```plaintext
-2024-10-02 09:31:23,539 WELCOME to Enola...
-2024-10-02 09:31:23,540 authorized...
-2024-10-02 09:31:23,540 STARTED!!!
+2024-10-17 09:31:23,539 WELCOME to Enola...
+2024-10-17 09:31:23,540 authorized...
+2024-10-17 09:31:23,540 STARTED!!!
 ```
 This means you have successfully connected to Enola and initialized your first tracking agent!
+
 ### Understanding Steps in Enola-AI
 
 In Enola-AI, the concept of **steps** is fundamental for tracking the execution flow of your AI agents. Each step represents a significant action or event in your agent's processing pipeline.
@@ -220,7 +197,7 @@ Generic steps are used to track any action or process in your agent that doesn't
 
 #### LLM Steps
 
-LLM steps are used to track interactions with language models where token usage, input/output messages, and costs are important.
+LLM Steps are used to track interactions with language models where token usage, input/output messages, and costs are important.
 
 **When to use LLM Steps:**
 
@@ -236,38 +213,29 @@ When working with conversational AI agents, it's essential to track user interac
 
 ### Step-by-Step Guide
 
-1. **Import the Required Classes**
+1. **Import libraries**
 
    ```python
+   # Import necessary libraries
    from enola.tracking import Tracking
-   from enola.enola_types import ErrOrWarnKind
    from dotenv import load_dotenv
    import os
    ```
 
-2. **Set Up the Authentication Token**
-
-   You need a JWT token provided by Enola-AI. This token is essential for authentication and authorization purposes.
+2. **Load the Token**
 
    ```python
+   # Load .env file and set up your token
    load_dotenv()
-   token = os.getenv('ENOLA_TOKEN')  # Load your token from an environment variable
+   token = os.getenv('ENOLA_TOKEN')
    ```
-3. **Create variable storing User Input**
-
-   For convenience, let's assume the variable user_input contains the User Input, which represents the question you are asking to the Model.
    
-   ```python
-   # Create variable representing the question you are asking to the Model
-   user_input = "What car offers good performance for a low cost?"
-   ```
-    We will use this variable to fill the 'message_input' and initialize our Tracking Object in the next step.
-    
-4. **Initialize the Tracking Object**
+3. **Initialize the Tracking Object**
 
    Create an instance of the `Tracking` class to start tracking an execution.
 
    ```python
+   # Initialize the tracking object
    monitor = Tracking(
        token=token,
        name="Chat Session Tracking V1",
@@ -277,47 +245,50 @@ When working with conversational AI agents, it's essential to track user interac
        session_id="Session456",
        channel_id="console",
        ip="192.168.1.1",
-       message_input=user_input
+       message_input="What car offers good performance for a low cost?"
    )
    ```
 
-5. **Create a New LLM Step**
+4. **Create a New LLM Step**
 
-   Since we're interacting with a language model, we'll create an LLM step.
+   Since we're interacting with a language model, we'll create an LLM Step.
 
    ```python
+   # Create an LLM Step
    step_chat = monitor.new_step("User Inquiry")
    ```
 
-6. **Add Extra Information**
+5. **Add Extra Information**
 
-   You can add any additional information relevant to the step.
+   You can add any additional information relevant to the step. In this case the user question.
 
    ```python
-   # User's question
-   step_chat.add_extra_info("UserQuestion", user_input)
+   # Add user's question
+   step_chat.add_extra_info("UserQuestion", "What car offers good performance for a low cost?")
    ```
 
-7. **Process the User Input with the Language Model**
+6. **Process the User Input with the Language Model**
 
    Suppose your model generates a response to the user's question.
 
    ```python
-   # Model's response (simulated)
+   # Simulate model response
    model_response = "The Honda Civic offers great performance at a reasonable price."
    ```
 
-8. **Add the Model's Response to the Step**
+7. **Add the Model's Response to the Step**
 
    ```python
+   # Add model's response
    step_chat.add_extra_info("ModelResponse", model_response)
    ```
 
-9. **Close the LLM Step**
+8. **Close the LLM Step**
 
    Indicate that the step has completed successfully, and include token usage and costs.
 
    ```python
+   # Close the LLM Step
    monitor.close_step_token(
        step=step_chat,
        successfull=True,
@@ -330,11 +301,12 @@ When working with conversational AI agents, it's essential to track user interac
    )
    ```
 
-10. **Execute the Tracking**
+9. **Execute the Tracking**
 
     Send the tracking data to the Enola-AI server.
 
       ```python
+      # Execute the tracking and send the data to Enola-AI server
       monitor.execute(
           successfull=True,
           message_output=model_response,
@@ -342,20 +314,17 @@ When working with conversational AI agents, it's essential to track user interac
       )
       ```
     After executing the Tracking, you have successfully completed all the necessary steps in sending online chat data. You can view the data in the Enola web interface by logging in.
-### Complete Example
+### Complete Example: Sending Online Chat Data
 
 ```python
+# Import necessary libraries
 from enola.tracking import Tracking
-from enola.enola_types import ErrOrWarnKind
 from dotenv import load_dotenv
 import os
 
-# Set up your token
+# Load .env file and set up your token
 load_dotenv()
 token = os.getenv('ENOLA_TOKEN')
-
-# Create variable representing the question you are asking to the Model
-user_input = "What car offers good performance for a low cost?"
 
 # Initialize the tracking object
 monitor = Tracking(
@@ -367,22 +336,22 @@ monitor = Tracking(
     session_id="Session456",
     channel_id="console",
     ip="192.168.1.1",
-    message_input=user_input
+    message_input="What car offers good performance for a low cost?"
 )
 
-# Create an LLM step
+# Create an LLM Step
 step_chat = monitor.new_step("User Inquiry")
 
 # Add user's question
-step_chat.add_extra_info("UserQuestion", user_input)
+step_chat.add_extra_info("UserQuestion", "What car offers good performance for a low cost?")
 
-# Simulate model response
+# Simulated model response
 model_response = "The Honda Civic offers great performance at a reasonable price."
 
 # Add model's response
 step_chat.add_extra_info("ModelResponse", model_response)
 
-# Close the LLM step
+# Close the LLM Step
 monitor.close_step_token(
     step=step_chat,
     successfull=True,
@@ -394,7 +363,7 @@ monitor.close_step_token(
     token_output_cost=0.0015
 )
 
-# Execute the tracking
+# Execute the tracking and send the data to Enola-AI server
 monitor.execute(
     successfull=True,
     message_output=model_response,
@@ -406,8 +375,46 @@ After executing the script and the tracking, you should get a console output lik
 Chat Session Tracking V1: sending to server... 
 Chat Session Tracking V1: finish OK! 
 ```
-This means you have successfully sent the data to the Enola servers and you will be able to monitor and evaluate your data.
+This means you have successfully sent the data to the Enola-AI servers and you will be able to monitor and evaluate your data.
 
+**Note 1: It is recommended to define the variable "user_input" to store the message input from the user and fill the "message_input" from the function Tracking.**
+
+
+- First you define the variable "user_input" and assign the message input from the user:
+    ```Python
+    user_input="What car offers good performance for a low cost?"
+    ```
+- Then replace the hardcoded definition of "message_input" with the variable "user_input" inside Tracking:
+    ```Python
+    monitor = Tracking(
+        token=token,
+        name="Chat Session Tracking V1",
+        is_test=True,
+        app_id="ChatApp",
+        user_id="User123",
+        session_id="Session456",
+        channel_id="console",
+        ip="192.168.1.1",
+        message_input=user_input
+    )
+    ```
+This approach using "user_input" variable to store the message from the user allows 
+better management and control over the message input from the user, 
+because it prevents the need to rewrite a message that was already written before. 
+By following good programming practices, you can achieve a cleaner and more 
+organized code.
+
+
+**Note 2: The messsage in the variable "model_response" is being simulated in this example.**
+
+```Python
+    # Simulated model response
+    model_response = "The Honda Civic offers great performance at a reasonable price."
+```
+
+However, when your Python script effectively connects with an LLM Model (eg. Ollama running on your local machine or through an API), you can expect a real response that will be stored in the variable "model_response". You can check our user guide to Create a simple Chatbot using Ollama running on your local machine (Pending guide...).
+
+(Pending sections...)
 ---
 
 ## Sending Online Score Data
