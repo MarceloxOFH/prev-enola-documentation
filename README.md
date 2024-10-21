@@ -208,10 +208,10 @@ LLM Steps are used to track interactions with language models where token usage,
 For complete project documentation, please visit our docs section [User Guide](docs/user_guide.md).
 In this section, you will find complete documentation about Enola-AI, including step-by-step instructions and examples, along with explanations of the system's functionalities:
 
-Currently, this guide will cover:
+This section will cover:
 - Sending Online Chat Data
 
-Please keep in mind these are upcoming features that will become available soon:
+Please keep in mind these are upcoming features that will become available soon in the [User Guide](docs/user_guide.md):
 - Sending Online Score Data
 - Sending Multiple Tasks
 - Sending File Information
