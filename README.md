@@ -219,7 +219,7 @@ Please keep in mind these are upcoming features that will become available soon:
 - Sending Cost Information
 - Sending Batch Score Data
 
-
+---
 ### Sending Online Chat Data
 
 When working with conversational AI agents, it's essential to track user interactions and model responses. Enola-AI allows you to send online chat data for monitoring and evaluation.
