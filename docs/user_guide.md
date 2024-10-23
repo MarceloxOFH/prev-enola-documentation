@@ -478,8 +478,12 @@ You can visit our Guide: Creating a Chatbot using Ollama (available soon).
 from enola.tracking import Tracking
 from enola.enola_types import ErrOrWarnKind
 from enola_ollama_v2 import ollama_chat  # Import your model/chatbot function
+from dotenv import load_dotenv
 import os
 import uuid
+
+# Load .env file
+load_dotenv()
 
 # Set up your token
 token = os.getenv('ENOLA_TOKEN')
@@ -641,8 +645,12 @@ Here's the full code combined:
 from enola.tracking import Tracking
 from enola.enola_types import ErrOrWarnKind
 from enola_ollama_v2 import ollama_chat  # Import your model/chatbot function
+from dotenv import load_dotenv
 import os
 import uuid
+
+# Load .env file
+load_dotenv()
 
 # Set up your token
 token = os.getenv('ENOLA_TOKEN')
@@ -825,8 +833,12 @@ First, import the necessary modules and initialize the `Tracking` object. Genera
 ```python
 from enola.tracking import Tracking
 from enola_ollama_v2 import ollama_chat  # Import your model/chatbot if applicable
+from dotenv import load_dotenv
 import os
 import uuid
+
+# Load .env file
+load_dotenv()
 
 # Set up your token
 token = os.getenv('ENOLA_TOKEN')
@@ -934,8 +946,12 @@ Below is the complete code that demonstrates how to send file information using 
 ```python
 from enola.tracking import Tracking
 from enola_ollama_v2 import ollama_chat  # Import your model/chatbot if applicable
+from dotenv import load_dotenv
 import os
 import uuid
+
+# Load .env file
+load_dotenv()
 
 # Set up your token
 token = os.getenv('ENOLA_TOKEN')
@@ -1404,8 +1420,12 @@ Here's a comprehensive example demonstrating how to include cost information whe
 ```python
 from enola.tracking import Tracking
 from enola_ollama_v2 import ollama_chat  # Import your model/chatbot
+from dotenv import load_dotenv
 import os
 import uuid
+
+# Load .env file
+load_dotenv()
 
 # Set up your token
 token = os.getenv('ENOLA_TOKEN')
