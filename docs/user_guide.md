@@ -1562,7 +1562,7 @@ By incorporating cost information into your tracking steps, you gain valuable in
 
 ---
 
-### 7. Summary
+## 7. Summary
 
 This documentation provides a guide on using the Enola-AI Python library to initialize tracking and explains the following sections:
 - 6.1. Sending Online Chat Data

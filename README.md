@@ -457,7 +457,7 @@ monitor.execute(
 
 ---
 
-### 7. Summary
+## 7. Summary
 
 This documentation provides a basic guide on using the Enola-AI Python library to initialize tracking and send online chat data.
 For more detailed documentation, you can visit our [User Guide](docs/user_guide.md).
