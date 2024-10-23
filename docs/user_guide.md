@@ -215,15 +215,13 @@ In this section, you will find complete documentation about Enola-AI, including 
 
 Currently, this guide is covering the following sections:
 - 6.1. Sending Online Chat Data
+- 6.2. Sending Online Score Data (available soon)
 - 6.3. Sending Multiple Tasks
 - 6.4. Sending File Information
 - 6.5. Sending API Information
 - 6.6. Sending Cost Information
-
-Please keep in mind these are upcoming features that will become available soon:
-- 6.2. Sending Online Score Data
-- 6.7. Sending Batch Score Data
-- Guide: Creating a Chatbot using Ollama
+- 6.7. Sending Batch Score Data (available soon)
+- Guide: Creating a Chatbot using Ollama (available soon)
 
 ---
 ### 6.1. Sending Online Chat Data

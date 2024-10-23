@@ -14,12 +14,6 @@
      - [LLM Steps](#llm-steps)
 6. [Documentation](#6-documentation)
    - 6.1. [Sending Online Chat Data](#61-sending-online-chat-data)
-   - 6.2. [Sending Online Score Data](#62-sending-online-score-data)
-   - 6.3. [Sending Multiple Tasks](#63-sending-multiple-tasks)
-   - 6.4. [Sending File Information](#64-sending-file-information)
-   - 6.5. [Sending API Information](#65-sending-api-information)
-   - 6.6. [Sending Cost Information](#66-sending-cost-information)
-   - 6.7. [Sending Batch Score Information](#67-sending-batch-score-information)
 7. [Summary](#7-summary)
 8. [Contributing](#8-contributing)
 9. [License](#9-license)
@@ -213,19 +207,18 @@ LLM Steps are used to track interactions with language models where token usage,
 
 In this section, you will find basic documentation about Enola-AI, including step-by-step instructions and examples, along with explanations of the system's functionalities:
 
-This basic guide is covering the following sections:
+This basic guide is covering the following section:
 - 6.1. Sending Online Chat Data
 
-For more detailed documentation, you can visit our [User Guide](docs/user_guide.md).
+For the rest of the documentation, you can visit our [User Guide](docs/user_guide.md) covering all of the sections:
+- 6.2. Sending Online Score Data (available soon)
 - 6.3. Sending Multiple Tasks
 - 6.4. Sending File Information
 - 6.5. Sending API Information
 - 6.6. Sending Cost Information
+- 6.7. Sending Batch Score Data (available soon)
+- Guide: Creating a Chatbot using Ollama (available soon)
 
-Please keep in mind these are upcoming features that will become available soon:
-- 6.2. Sending Online Score Data
-- 6.7. Sending Batch Score Data
-- Guide: Creating a Chatbot using Ollama
 
 ---
 ### 6.1. Sending Online Chat Data
