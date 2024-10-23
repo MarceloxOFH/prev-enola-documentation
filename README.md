@@ -424,8 +424,15 @@ monitor.execute(
 #### **Notes**
 
 - **Model Integration**:
-  - In a production environment, replace the simulated model response with actual integration to your language model.
   - Ensure that you capture actual token counts and costs.
+  - Ensure that you add your actual model response, since the message in the variable `model_response` is being simulated in this example:
+    ```Python
+    # Simulated model response
+    model_response = "The Honda Civic offers great performance at a reasonable price."
+    ```
+   - However, when your Python script effectively connects with an LLM Model (eg. Ollama running on your local machine or through an API), you can expect a real response that will be stored in the variable `model_response`.
+   - You can check our user guide to create a simple chatbot using Ollama running on your local machine (available soon).
+  
 
 - **Error Handling**:
   - Implement error handling for cases where the language model fails or returns an unexpected response.
@@ -438,15 +445,6 @@ monitor.execute(
 	Chat Session Tracking V1: sending to server... 
 	Chat Session Tracking V1: finish OK! 
 	```
-
- - **Model Response**:
-   - The message in the variable `model_response` is being simulated in this example.
-        ```Python
-        # Simulated model response
-        model_response = "The Honda Civic offers great performance at a reasonable price."
-        ```
-   - However, when your Python script effectively connects with an LLM Model (eg. Ollama running on your local machine or through an API), you can expect a real response that will be stored in the variable `model_response`.
-   - You can check our user guide to create a simple chatbot using Ollama running on your local machine (available soon).
 
 ---
 
