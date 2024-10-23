@@ -228,7 +228,7 @@ Please keep in mind these are upcoming features that will become available soon:
 - Guide: Creating a Chatbot using Ollama
 
 ---
-### 6.1 Sending Online Chat Data
+### 6.1. Sending Online Chat Data
 
 When working with conversational AI agents, it's essential to track user interactions and model responses. Enola-AI allows you to send online chat data for monitoring and evaluation.
 
@@ -457,14 +457,14 @@ monitor.execute(
 
 ---
 
-### Summary
+### 7. Summary
 
 This documentation provides a basic guide on using the Enola-AI Python library to initialize tracking and send online chat data.
 For more detailed documentation, you can visit our [User Guide](docs/user_guide.md).
 
 ---
 
-## Contributing
+## 8. Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or corrections.
 
@@ -477,12 +477,12 @@ When contributing, please ensure to:
 
 ---
 
-## License
+## 9. License
 
 This project is licensed under the **BSD 3-Clause License**.
 
 ---
 
-## Contact
+## 10. Contact
 
 For any inquiries or support, please contact us at [help@huemulsolutions.com](mailto:help@huemulsolutions.com).

@@ -226,7 +226,7 @@ Please keep in mind these are upcoming features that will become available soon:
 - Guide: Creating a Chatbot using Ollama
 
 ---
-### 6.1 Sending Online Chat Data
+### 6.1. Sending Online Chat Data
 
 When working with conversational AI agents, it's essential to track user interactions and model responses. Enola-AI allows you to send online chat data for monitoring and evaluation.
 
@@ -454,10 +454,10 @@ monitor.execute(
    - You can check our user guide to create a simple chatbot using Ollama running on your local machine (available soon).
 
 ---
-### 6.2 Sending Online Score Data (available soon)
+### 6.2. Sending Online Score Data (available soon)
 ---
 
-### 6.3 Sending Multiple Tasks
+### 6.3. Sending Multiple Tasks
 
 When your agent performs multiple tasks or steps within a single execution, you can track each step individually using Enola-AI. This is crucial for detailed monitoring, debugging, and ensuring that each part of your application functions correctly.
 
@@ -814,7 +814,7 @@ By incorporating multiple steps and thorough validation, you enhance the reliabi
 
 ---
 
-### 6.4 Sending File Information
+### 6.4. Sending File Information
 
 When your application processes files (e.g., images, documents), you can use Enola-AI to log file-related information for tracking purposes. This is particularly useful for monitoring file processing steps, debugging, and maintaining an audit trail.
 
@@ -1033,7 +1033,7 @@ By following this guide, you can effectively use Enola-AI to track file processi
 
 ---
 
-### 6.5 Sending API Information
+### 6.5. Sending API Information
 
 When your application makes API calls, you can use Enola-AI to log detailed information about these interactions. This is useful for monitoring API usage, debugging issues, and maintaining an audit trail of external service integrations.
 
@@ -1291,7 +1291,7 @@ By following this guide, you can effectively log API call information in your ap
 
 ---
 
-### 6.6 Sending Cost Information
+### 6.6. Sending Cost Information
 
 Tracking the cost associated with different steps in your application helps monitor resource usage and optimize performance. Enola-AI allows you to include cost information when closing steps, providing detailed insights into the expenses incurred during execution.
 
@@ -1558,11 +1558,11 @@ By incorporating cost information into your tracking steps, you gain valuable in
 
 ---
 
-### 6.7 Sending Batch Score Information (available soon)
+### 6.7. Sending Batch Score Information (available soon)
 
 ---
 
-### Summary
+### 7. Summary
 
 This documentation provides a guide on using the Enola-AI Python library to initialize tracking and explains the following sections:
 - 6.1. Sending Online Chat Data
@@ -1578,7 +1578,7 @@ Future sections will cover additional features as they become available:
 
 ---
 
-## Contributing
+## 8. Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or corrections.
 
@@ -1591,12 +1591,12 @@ When contributing, please ensure to:
 
 ---
 
-## License
+## 9. License
 
 This project is licensed under the **BSD 3-Clause License**.
 
 ---
 
-## Contact
+## 10. Contact
 
 For any inquiries or support, please contact us at [help@huemulsolutions.com](mailto:help@huemulsolutions.com).
